@@ -1,0 +1,54 @@
+site_name: 보안위키
+site_url: 
+theme:
+  name: material
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed
+
+nav:
+  - Home: index.md
+  - Web Hacking:
+      - XSS: web/xss.md
+      - CSRF: web/csrf.md
+  - System Hacking:
+      - BOF: system/bof.md
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: 다크 모드로 전환
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: 라이트 모드로 전환
+  features:
+    # - navigation.tabs
+    # - navigation.sections
+    - toc.integrate
+    # - navigation.instant
+    # - navigation.tracking
+    # - navigation.top
+    # - navigation.footer
+
+extra:
+  analytics:
+    # provider: plausible
+    # domain: yourdomain.com
