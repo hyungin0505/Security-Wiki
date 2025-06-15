@@ -8,26 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://hyungin0505.github.io/Security-Wiki/">
+        <link rel="canonical" href="https://hyungin0505.github.io/Security-Wiki/bof/">
       
       
+        <link rel="prev" href="../csrf/">
       
-        <link rel="next" href="xss/">
+      
+        <link rel="next" href="../canary/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>보안위키</title>
+        <title>BOF - 보안위키</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#buffer-overflow" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="보안위키" class="md-header__button md-logo" aria-label="보안위키" data-md-component="logo">
+    <a href=".." title="보안위키" class="md-header__button md-logo" aria-label="보안위키" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              BOF
             
           </span>
         </div>
@@ -212,7 +214,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="보안위키" class="md-nav__button md-logo" aria-label="보안위키" data-md-component="logo">
+    <a href=".." title="보안위키" class="md-nav__button md-logo" aria-label="보안위키" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -227,19 +229,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -250,7 +243,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -305,7 +297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="xss/" class="md-nav__link">
+      <a href="../xss/" class="md-nav__link">
         
   
   
@@ -328,7 +320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="csrf/" class="md-nav__link">
+      <a href="../csrf/" class="md-nav__link">
         
   
   
@@ -355,8 +347,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -367,11 +361,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -387,7 +381,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Pwnble
@@ -398,10 +392,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="bof/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    BOF
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -412,6 +428,92 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stack-buffer-overflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stack Buffer Overflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stack Buffer Overflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      관련 공격 기법
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      관련 방어 기법
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heap-buffer-overflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heap Buffer Overflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Heap Buffer Overflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      관련 공격 기법
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      관련 방어 기법
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -474,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="canary/" class="md-nav__link">
+      <a href="../canary/" class="md-nav__link">
         
   
   
@@ -517,6 +619,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stack-buffer-overflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stack Buffer Overflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stack Buffer Overflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      관련 공격 기법
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      관련 방어 기법
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heap-buffer-overflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heap Buffer Overflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Heap Buffer Overflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      관련 공격 기법
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      관련 방어 기법
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -531,17 +707,42 @@
 
 
 
-<h1 id="_1">보안 위키<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>이 문서는 Web, Binary, Crypto 등 다양한 보안 주제를 다룹니다.</p>
+<h1 id="buffer-overflow">Buffer Overflow<a class="headerlink" href="#buffer-overflow" title="Permanent link">&para;</a></h1>
+<p>버퍼에 허용된 크기 이상의 데이터를 입력하여 임의의 메모리 공간을 침범할 수 있는 취약점이다.<br />
+바이너리가 잘못된 메모리 주소에 접근하면 Segmentation Fault 오류를 발생시킨다.   </p>
+<hr />
+<h2 id="stack-buffer-overflow">Stack Buffer Overflow<a class="headerlink" href="#stack-buffer-overflow" title="Permanent link">&para;</a></h2>
+<p>불충분한 경계 검사로 인해 스택에서 버퍼 오버플로우가 발생할 경우 다양한 공격이 가능하다.<br />
+스택에 인접하게 저장된 지역 변수의 값을 임의로 변경하거나 리턴 주소를 조작해 프로그램의 실행 흐름을 변경할 수도 있다.  </p>
+<p>일반적으로 리턴 주소를 임의의 주소로 조작하여 제어 흐름을 탈취한다.</p>
+<h3 id="_1">관련 공격 기법<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="./../return-to-library">Return-to-libc</a></li>
+<li><a href="./../return-oriented-programming">Retrun-Oriented-Programming</a></li>
+</ul>
+<h3 id="_2">관련 방어 기법<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="./../canary">Stack Canary</a></li>
+<li><a href="./../nx">NX</a></li>
+<li><a href="./../aslr">ASLR</a></li>
+</ul>
+<hr />
+<h2 id="heap-buffer-overflow">Heap Buffer Overflow<a class="headerlink" href="#heap-buffer-overflow" title="Permanent link">&para;</a></h2>
+<p>힙 영역에서 발생하는 버퍼 오버플로우를 말한다.<br />
+동적으로 할당된 메모리 영역에서 메모리 청크의 메타데이터를 조작할 수 있다.  </p>
+<p>또한, 함수 포인터를 임의로 덮어씌워 힙 구조를 변조할 수 있다.<br />
+fastbin, tcache 등 힙의 관리 구조가 다양해 복잡한 구조에 대한 이해가 필요해서 스택 버퍼 오버플로우보다 난이도가 높은 편이다.  </p>
+<h3 id="_3">관련 공격 기법<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Tcache Poisoning</li>
+</ul>
+<h3 id="_4">관련 방어 기법<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 
 
 
 
 
 
-
-  
-  
 
 
 
@@ -584,10 +785,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.sections"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>
