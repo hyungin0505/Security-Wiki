@@ -1,7 +1,5 @@
 site_name: 보안위키
 site_url: https://hyungin0505.github.io/Security-Wiki/
-theme:
-  name: material
 
 markdown_extensions:
   - admonition
@@ -17,10 +15,12 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Web Hacking:
-      - XSS: web/xss.md
-      - CSRF: web/csrf.md
-  - System Hacking:
-      - BOF: system/bof.md
+      - XSS: xss.md
+      - CSRF: csrf.md
+  - Pwnble:
+      - BOF: bof.md
+  - Memory Mitigation:
+      - Canary: canary.md
 
 theme:
   name: material
@@ -41,8 +41,8 @@ theme:
         name: 라이트 모드로 전환
   features:
     # - navigation.tabs
-    # - navigation.sections
-    - toc.integrate
+    - navigation.sections
+    # - toc.integrate
     # - navigation.instant
     # - navigation.tracking
     # - navigation.top
